@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rails 6 Chat</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <%= csrf_meta_tags %>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
+    <meta name="robots" content="noindex, nofollow">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <style>
+        body {
+          padding-top: 40px;
+          padding-bottom: 40px;
+          background-color: #303641;
+          color: #C1C3C6
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <br><br>
+      <%= yield %>
+    </div>
+    <div class="clearfix"></div>
+    <br><br>
+
+    <%= yield :extra_javascripts %>
+  </body>
+</html>
+

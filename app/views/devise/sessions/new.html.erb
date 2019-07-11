@@ -1,0 +1,38 @@
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:"form-signin"}) do |f| %>
+  <center>
+    <h3 class="form-signin-heading">RAILS 6 Chat<br/> SIGN IN</h3>
+  </center>
+  <br/>
+
+  <%= f.error_notification %>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon">
+        <i class="glyphicon glyphicon-user"></i>
+      </div>
+      <%= f.input_field :username, required: false, class:"form-control",placeholder:"Username", autofocus: true %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon">
+        <i class=" glyphicon glyphicon-lock "></i>
+      </div>
+      <%= f.input_field :password,class:"form-control", placeholder: "Password", required: false %>
+    </div>
+  </div>
+
+  <label class="checkbox">
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  </label>
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <br/>
+  <%= render "devise/shared/links" %>
+
+<% end %>
+
+

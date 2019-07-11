@@ -1,0 +1,43 @@
+body{
+
+	.content {
+		.main-panel-hldr {
+		  min-height: 800px;
+		}
+	}
+
+	.has-error {
+		.label-title{
+		  color: #DA4453;
+		}
+	}
+
+	.has-error {
+		.help-block{
+		  margin-top:0!important;
+		}
+	}
+
+	.nav-bar{
+		background: #303641;
+
+		ul{
+			&.navbar-right{
+				padding-right: 20px;
+				li{
+					a{
+						color: #aaabae;
+						font-size: 12px;
+						text-transform: uppercase;
+
+						&:hover{
+							background: #2B303A;
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

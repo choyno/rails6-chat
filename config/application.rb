@@ -11,9 +11,24 @@ module Rails6Chat
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    config.encoding = "utf-8"
+    config.assets.precompile += %w(*.svg *.eot *.woff *.ttf )
+
+    config.generators do |g|
+      g.test_framework :rspec, :view_specs => false
+    end
+
+    config.to_prepare do
+      Devise::Mailer.layout "mailer"
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application"   : "auth" }
+      Devise::SessionsController.layout "auth"
+      Devise::ConfirmationsController.layout "auth"
+      Devise::UnlocksController.layout "auth"
+      Devise::PasswordsController.layout "auth"
+    end
+
+    config.autoload_paths += Dir["#{config.root}/lib"]
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
   end
 end
