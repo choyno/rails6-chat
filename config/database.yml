@@ -1,0 +1,27 @@
+
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  encoding: unicode
+  host: pg
+  username: postgres
+  password:
+  port: 5432
+
+
+development:
+  <<: *default
+  database: rails6_chat_dev
+
+test:
+  <<: *default
+  database: rails6_chat_test
+
+production:
+  <<: *default
+  database: rails6_chat_prod
+
+
+
+
