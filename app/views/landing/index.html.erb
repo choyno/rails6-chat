@@ -5,7 +5,8 @@
 <div id="msg">
   <% @messages.each do |message| %>
     <div class="message">
-    <%= message.content %>
+      <span style="color:red"><%= message.user.try(:username) %></span>:
+        <%= message.content %>
     </div>
   <% end %>
 </div>

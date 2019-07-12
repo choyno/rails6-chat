@@ -11,7 +11,6 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap.min
- *= require bootflat-admin
  *= require site
  *= require custom
  *= require media
