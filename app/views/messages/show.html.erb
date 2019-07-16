@@ -1,0 +1,17 @@
+
+<h3>Chat Box</h3>
+<hr />
+
+<div id="msg">
+  <% @messages.each do |message| %>
+    <div class="message">
+      <span style="color:red"><%= message.user.try(:username) %></span>:
+        <%= message.content %>
+    </div>
+  <% end %>
+</div>
+
+<%= form_for @message, remote: true do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>
