@@ -10,6 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div style="padding:10px;">
+
+      <h1><%= link_to "Welcome", "/"  %> <%= current_user.username %> :) Find Your Partner</h1>
+      <%= yield %>
+    </div>
   </body>
 </html>

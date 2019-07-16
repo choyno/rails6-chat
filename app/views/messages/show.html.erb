@@ -2,7 +2,7 @@
 <h3>Chat Box</h3>
 <hr />
 
-<div id="msg">
+<div id=<%="msg_thread_#{@message_thread.id}"%> >
   <% @messages.each do |message| %>
     <div class="message">
       <span style="color:red"><%= message.user.try(:username) %></span>:
@@ -13,5 +13,6 @@
 
 <%= form_for @message, remote: true do |f| %>
   <%= f.text_field :content %>
+  <%= hidden_field_tag "id",  params[:id] %>
   <%= f.submit %>
 <% end %>

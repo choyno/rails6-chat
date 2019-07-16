@@ -1,14 +1,11 @@
-<div style="padding:10px;">
-  <h1>Find Your Partner</h1>
-  <p>Youtube Link: https://www.youtube.com/watch?v=nRP91C1uX-w</p>
-  <p>Find me in app/views/landing/index.html.erb</p>
+<p>Youtube Link: https://www.youtube.com/watch?v=nRP91C1uX-w</p>
+<p>Find me in app/views/landing/index.html.erb</p>
 
-  <% (User.all).each do |user| %>
-    <%= link_to "/messages/#{user.id}" do %>
-      <br />
-      <img src=<%= user.gravatar_url %> alt="" />
-      <br />
-      <%=  user.username %>
-    <% end %>
+<% @users.each do |user| %>
+  <%= link_to "/messages/#{user.id}" do %>
+    <br />
+    <img src=<%= user.gravatar_url %> alt="" />
+    <br />
+    <%=  user.username %>
   <% end %>
-</div>
+<% end %>
