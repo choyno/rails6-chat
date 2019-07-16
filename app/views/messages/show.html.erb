@@ -1,15 +1,22 @@
 
 <h3>Chat Box</h3>
 <hr />
-
+</div>
 <div id=<%="msg_thread_#{@message_thread.id}"%> >
   <% @messages.each do |message| %>
+    <% is_crt_user =  (current_user.id == message.user_id) %>
     <div class="message">
-      <span style="color:red"><%= message.user.try(:username) %></span>:
-        <%= message.content %>
+      <div class="container <%= "darker" if is_crt_user  %>">
+        <img src=<%= message.user.gravatar_url %> alt="Avatar" class="<%= "right" if is_crt_user %>">
+        <div class="time-<%= is_crt_user ? "right" : "left" %>">
+          <p> <%= message.content %> </p>
+          <span ><%= message.user.try(:username) %></span>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
+
 
 <%= form_for @message, remote: true do |f| %>
   <%= f.text_field :content %>

@@ -11,8 +11,18 @@ consumer.subscriptions.create("RoomChannel", {
   },
 
   received(data) {
-    console.log(data.content)
-    $(data.room_id).append('<div class="message"><span style="color:red">'+ data.name +'</span>:' + data.content +' </div>')
+
+    var msg_frm = '<div class="message">';
+    msg_frm += '    <div class="container '+ data.is_darker+'">';
+    msg_frm += '      <img src="'+ data.img +'" alt="Avatar" class="'+ data.img_pst +'">';
+    msg_frm += '     <div class="'+ data.time_frame +'">';
+    msg_frm += '      <p> '+ data.content+' </p>';
+    msg_frm += '      <span>' + data.name +'</span>';
+    msg_frm += '    </div>';
+    msg_frm += '   </div>';
+    msg_frm += '</div>';
+
+    $(data.room_id).append(msg_frm)
     $("#message_content").val("");
     // Called when there's incoming data on the websocket for this channel
   }

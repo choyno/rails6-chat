@@ -11,4 +11,5 @@ class User < ApplicationRecord
     url = "https://gravatar.com/avatar/#{gravatar_id}.png"
   end
 
+
 end

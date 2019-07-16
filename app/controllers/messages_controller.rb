@@ -23,7 +23,11 @@ class MessagesController < ApplicationController
     @message.message_thread_id = @message_thread.id
     if @message.save
       ActionCable.server.broadcast 'room_channel', content: @message.try(:content),
-                                                   name: @message.user.try(:username), 
+                                                   name: @message.user.try(:username),
+                                                   is_darker: ( "darker" if (current_user.id == @message.user.id)),
+                                                   img_pst: ( "right" if (current_user.id == @message.user.id)),
+                                                   time_frame: ( (current_user.id == @message.user.id) ? "time-right" :"time-left" ),
+                                                   img: @message.user.gravatar_url,
                                                    room_id: "#msg_thread_#{@message_thread.id}"
     end
   end
